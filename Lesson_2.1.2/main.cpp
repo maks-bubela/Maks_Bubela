@@ -7,9 +7,13 @@ int main()
     int a,b=-1;
     cout << "Your number? : ";
     cin >> a;
-    do {
-            b++;
-        cout << b << " ";
-
-    }while (a>b);
+    for (int i=0;i-1<a;i++){
+        if (i==a){
+            cout << i ;
+            break;
+        }
+        cout << i << ",";
+    }
 }
+
+

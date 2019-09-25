@@ -16,8 +16,8 @@ int main()
         }
         cout << endl;
     }
-        for (int q=0;q<a;q++){
-            cout << " ";
-        }
-            cout <<"*";
+    for (int q=0;q<a;q++){
+        cout << " ";
+    }
+    cout <<"*";
 }

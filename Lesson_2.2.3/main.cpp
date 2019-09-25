@@ -13,13 +13,13 @@ int main()
         cin >> a[i];
         if (a[i]%2==0)
             a[i]=0;
-             if (a[i]==0)
-                 break;
-                 if (a[i]>b)
-                     b=a[i];
+        if (a[i]==0)
+            break;
+        if (a[i]>b)
+            b=a[i];
     }
     for (int i=0;i<20;i++){
-            if (a[i]==0)
+        if (a[i]==0)
             break;
         probel = b-(a[i]/2);
         for (int q=0;q<probel;q++){

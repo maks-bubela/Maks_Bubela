@@ -4,14 +4,21 @@ using namespace std;
 
 int main()
 {
-    int a[5];
+    int a[5],b=0;
     for (int i=0;i<5;i++){
         cout << "Stars in " << i+1 << " column : ";
         cin >> a[i];
+        if (a[i]>b)
+            b=a[i];
     }
-    for (int i=0;i<5;i++){
-        for (int q=0;q<a[i];q++){
-            cout << "*";
+    for (int i=0;i<b;i++){
+        for (int q=0;q<5;q++){
+            if (a[q]>0){
+                cout << "*";
+                a[q]-=1;
+            }
+            else
+                cout << " ";
         }
         cout << endl;
     }

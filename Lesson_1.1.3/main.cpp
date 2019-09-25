@@ -25,11 +25,11 @@ int main()
     i=0;
     if (c==1)
         i=a+b;
-    else if (c==2)
+    if (c==2)
         i=a-b;
-    else if (c==3)
+    if (c==3)
         i=a*b;
-        else if (c==4)
+    if (c==4)
         i=a/b;
 
         cout << "Answer : " << i;
