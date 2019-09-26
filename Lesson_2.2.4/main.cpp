@@ -13,9 +13,9 @@ int main()
     }
     for (int i=0;i<b;i++){
         for (int q=0;q<5;q++){
-            if (a[q]>0){
+            if (a[q]>i){
                 cout << "*";
-                a[q]-=1;
+
             }
             else
                 cout << " ";

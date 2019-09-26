@@ -34,13 +34,12 @@ int main()
             for (int q = 0;q<i;q++){
                 cout << " ";
             }
-
             for (int q = a-(i-1);q!=0;q--){
                 cout << "*";
             }
             cout << endl;
-    }
+        }
 
     }
-    }
+}
 
