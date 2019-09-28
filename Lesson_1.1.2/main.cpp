@@ -13,10 +13,11 @@ int main()
     if (a>999){
         if (a<1000000){
             cout << "Good" << endl;
+
+            goto exit;
         }
-    }
-    if (a>999999){
         cout << "You are a millionaire" <<endl;
     }
+    exit:
     cout << "But you done";
 }
