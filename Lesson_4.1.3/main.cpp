@@ -4,8 +4,8 @@ using namespace std;
 
 int main()
 {
-    char bukva;// буква которую вводит пользователь
-    char bukva1; // буква в верхнем регистре
+    char bukva;// Word which user enter
+    char bukva1; // Word in uppercase
     cout << "Enter your letter : ";
     cin >> bukva;
     bukva1=bukva-32;

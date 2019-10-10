@@ -4,10 +4,10 @@ using namespace std;
 
 int main()
 {
-    char slovo[100]; // для слов в строках
-    int i=0,q=0; // инкрименты
-    int lnumb=0; // самое большое число
-    int raz=0;
+    char slovo[100]; // massive for words in lines
+    int i=0,q=0; // increments
+    int lnumb=0; // The largest number
+    int raz=0; // difference between increment i and largest number
     for (int i=0;i<100;i++)
         slovo[i]=0;
     cout << "Enter your line here (max 100 words) : ";
