@@ -12,10 +12,15 @@ int main()
         goto exit;
     }
 
-        if (a<1000000){
-            cout << "Good" << endl;
-
-            goto exit;
+        if (a<10000000){
+            while (a<1000000){
+                cout << "Good" << endl;
+                goto exit;
+            }
+            while (a>=1000000){
+                cout << "You are a millionaire" << endl;
+                goto exit;
+            }
         }
         cout << "You are a millionaire" <<endl;
 
