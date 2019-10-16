@@ -16,7 +16,7 @@ int main()
     cout << "Enter your words : ";
     cin.getline(slovo,100);
     while (slovo[i]!=0){
-        if (slovo[i]>90){
+        if (slovo[i]>'a'){
             slovo[i]-=32;   // This cycle make all words to uppercase
         }
         i++;
