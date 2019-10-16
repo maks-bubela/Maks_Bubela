@@ -23,11 +23,15 @@ int main()
         }
     }
     for (int i=0;i<q;i++){
-        while (slovo[i]==' ' && slovo[i+1]==' '){
+        while ((slovo[i]==' ' && slovo[i+1]==' ') ||
+               (slovo[i]==' ' && slovo[i+1]==0)){
             for(int k=1;k<q;k++){
                 dubslovo=slovo[i+k];
                 slovo[i+k]=slovo[i+k+1];                    //in this cycle we normalize all line
                 slovo[i+k+1]=dubslovo;
+                if (slovo[i]==' ' && slovo[i+1]==0){
+                    slovo[i]=0;
+                }
             }
         }
     }
