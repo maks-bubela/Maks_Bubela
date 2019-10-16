@@ -17,7 +17,7 @@ int main()
                 cout << "Good" << endl;
                 goto exit;
             }
-            while (a>=1000000){
+            while (a>999999){
                 cout << "You are a millionaire" << endl;
                 goto exit;
             }
