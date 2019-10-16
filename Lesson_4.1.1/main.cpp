@@ -8,13 +8,12 @@ int main()
     int i=0,b=0,k=1; // increments
     char letters[64];  // massive for letters
     int uppercase=65,lowercase=97; // variable for value letters in ascii code
-    int cletter=64,tyletter=32; // counter for letters
-    for (int i=0;i<=cletter;i++){
-        if (i<=tyletter){
+    for (int i=0;i<='A';i++){
+        if (i<='Z'){
             letters[i]=uppercase;               // cycle give to massive letters value letters in ascii code
             uppercase++;
         }
-        if (i>tyletter){
+        if (i>'Z'){
             letters[i]=lowercase;
             lowercase++;
         }
@@ -25,18 +24,18 @@ int main()
     cin.getline(slovo,100);
     i=1;
     while (slovo[i]!=0){
-        for (int q=0;q<=cletter;q++){
+        for (int q=0;q<='A';q++){
             if (slovo[i]==letters[q]){              // here we check whether this variable is a letter
                 b=1;
                 break;
             }
         }
         if (b!=1){
-            for (int q=0;q<cletter;q++){
+            for (int q=0;q<'A';q++){
                 if (slovo[i-1]==letters[q]){
                     int a=i;
                     while (slovo[a]!=0){
-                        for (int j=0;j<cletter;j++){
+                        for (int j=0;j<'A';j++){
                             if (slovo[a]==letters[j]){                  // here we check how much words in a line
                                 b=1;
                                 break;
