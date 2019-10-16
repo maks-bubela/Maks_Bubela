@@ -10,12 +10,17 @@ int main()
         slovo[i]=0;
     cout << "Enter your words : ";
     cin.getline(slovo,100);
-    int i =0,q=1; // increments
+    int i =0,q=1,j=0; // increments
     while (slovo[i]!=0){
         while (slovo[i]==' '){
+            if(slovo[i+q]!=0){
                 slovo[i]=slovo[i+q];            // in this cycle we deleting all gups
+
                 slovo[i+q]=' ';
                 q++;
+            }
+            else
+                break;
         }
         q=1;
         i++;
