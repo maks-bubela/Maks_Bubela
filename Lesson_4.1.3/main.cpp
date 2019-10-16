@@ -4,11 +4,17 @@ using namespace std;
 
 int main()
 {
-    char bukva;// Word which user enter
-    char bukva1; // Word in uppercase
-    cout << "Enter your letter : ";
-    cin >> bukva;
-    bukva1=bukva-32;
-    cout << endl << "Your letter : " << bukva1;
+    char words[100];// Word which user enter
+    int i=0; // increment
+    for (int i=0;i<100;i++)
+        words[i]=0;
+    cout << "Enter your line : ";
+    cin.getline(words,100);
+    i=0;
+    while (words[i]!=0){
+    words[i]-=32;
+    i++;
+    }
+    cout << endl << "Your line : " << words;
 
 }
