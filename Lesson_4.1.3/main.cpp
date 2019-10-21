@@ -12,9 +12,11 @@ int main()
     cin.getline(words,100);
     i=0;
     while (words[i]!=0){
-    words[i]-=32;
-    i++;
+        if (words[i]>='a' && words[i]<='z')             // here we make words from lower case to upper case
+            words[i]-=32;
+        i++;
     }
+
     cout << endl << "Your line : " << words;
 
 }
