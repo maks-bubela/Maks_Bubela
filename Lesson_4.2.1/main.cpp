@@ -25,6 +25,9 @@ int main()
         q=1;
         i++;
     }
+    i=0;
+    while (slovo[i]!=0 && slovo[i]!=' ')
+        i++;
     for (int k=0;k<=i;k++){
         if (slovo[k]==slovo[i-1]||i==k){
             if (k==i-1 && slovo[i-1]==slovo[k])
