@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     char slovo[100]; // massive for words in lines
-    int i=0,b=0,k=1; // increments
+    int i=0,b=0,k=0; // increments
     char letters[64];  // massive for letters
     int uppercase=65,lowercase=97; // variable for value letters in ascii code
     for (int i=0;i<='A';i++){
@@ -50,11 +50,14 @@ int main()
                         a++;
                     }
                 }
-
             }
         }
+        else if (k==0 && b==1)
+            k++;
         b=0;
         i++;
+
+
     }
     cout << "The number of words in your line : " << k ;
 }
