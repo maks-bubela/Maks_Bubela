@@ -9,8 +9,6 @@ int main()
     cin >> a;
     if (a<1000){
         cout << "Work more!!!" << endl;
-        cout << "But you done";
-        return 0;
     }
     if (a<1000000)
         cout << "Good" << endl;
