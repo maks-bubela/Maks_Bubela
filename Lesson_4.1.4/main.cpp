@@ -9,25 +9,25 @@ int main()
     int numb[26];           //Massive for statistic
     for (int i=0;i<26;i++)
         numb[i]=0;
-    int trashcounter=0,slovocounter=0,lettercounter=0,nextnumb=1;    //increments
+    int trashcounter=0,checkcount=0,nextnumb=1;    //increments
     for (int i=0;i<100;i++){
         slovo[i]=0;
     }
     cout << "Enter your words : ";
     cin.getline(slovo,100);
-    while (slovo[slovocounter]!=0){
-        if (slovo[slovocounter]>'a'){
-            slovo[slovocounter]-=32;   // This cycle make all words to uppercase
+    while (slovo[checkcount]!=0){
+        if (slovo[checkcount]>'a'){
+            slovo[checkcount]-=32;   // This cycle make all words to uppercase
         }
-        slovocounter++;
+        checkcount++;
     }
-    slovocounter=0;
-    while (slovo[slovocounter]!=0){
-        if (slovo[slovocounter]!=' '){
+    checkcount=0;
+    while (slovo[checkcount]!=0){
+        if (slovo[checkcount]!=' '){
             while (slovo[trashcounter]!=0){
-                if (slovo[trashcounter]==slovo[slovocounter]){        //this cycle counting number of all words in line and clearing trash letters
-                    numb[lettercounter]++;
-                    if (trashcounter!=slovocounter){
+                if (slovo[trashcounter]==slovo[checkcount]){        //this cycle counting number of all words in line and clearing trash letters
+                    numb[checkcount]++;
+                    if (trashcounter!=checkcount){
                         slovo[trashcounter]=' ';
                     }
                 }
@@ -36,22 +36,22 @@ int main()
             trashcounter=0;
         }
         else {
-            while (slovo[slovocounter]==' '){
-                slovo[slovocounter]=slovo[slovocounter+nextnumb];
-                slovo[slovocounter+nextnumb]=' ';
+            while (slovo[checkcount]==' '){
+                slovo[checkcount]=slovo[checkcount+nextnumb];
+                slovo[checkcount+nextnumb]=' ';
                 nextnumb++;
             }
             nextnumb=1;
-            slovocounter--;
-            lettercounter--;
+            checkcount--;
+
         }
-        lettercounter++;
-        slovocounter++;
+        checkcount++;
+
 
     }
 
-     for (int q =0; q< lettercounter;q++){
-        for (int i =0; i< lettercounter;i++){
+     for (int q =0; q< checkcount;q++){
+        for (int i =0; i< checkcount;i++){
             if (numb[i]<numb[q]){
                 nextnumb=numb[i];
                 numb[i]=numb[q];            //This cycle make statistic
@@ -62,7 +62,7 @@ int main()
             }
         }
      }
-     for (int i=0;i<lettercounter;i++){
+     for (int i=0;i<checkcount;i++){
         cout << slovo [i] << " - " << numb[i] << endl;
      }
 }
