@@ -26,7 +26,13 @@ int main()
         i++;
     }
     i=0;
-    while (slovo[i]!=0 && slovo[i]!=' ')
+    while(slovo[i]!=0){
+        if (slovo[i]==' '){
+            slovo[i]=0;}
+            i++;
+    }
+    i=0;
+    while (slovo[i]!=0)
         i++;
     for (int k=0;k<=i;k++){
         if (slovo[k]==slovo[i-1]||i==k){
