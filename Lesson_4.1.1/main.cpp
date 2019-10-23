@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     char slovo[100]; // massive for words in lines
-    int i=0,b=0,k=0; // increments
+    int maincount=1,checkw=0,words=0; // increments
     char letters[64];  // massive for letters
     int uppercase=65,lowercase=97; // variable for value letters in ascii code
     for (int i=0;i<='A';i++){
@@ -22,29 +22,29 @@ int main()
         slovo[i]=0;
     cout << "Enter your line here (max 100 words) : ";
     cin.getline(slovo,100);
-    i=1;
-    while (slovo[i]!=0){
+
+    while (slovo[maincount]!=0){
         for (int q=0;q<='A';q++){
-            if (slovo[i]==letters[q]){              // here we check whether this variable is a letter
-                b=1;
+            if (slovo[maincount]==letters[q]){              // here we check whether this variable is a letter
+                checkw=1;
                 break;
             }
         }
-        if (b!=1){
+        if (checkw!=1){
             for (int q=0;q<'A';q++){
-                if (slovo[i-1]==letters[q]){
-                    int a=i;
+                if (slovo[maincount-1]==letters[q]){
+                    int a=maincount;
                     while (slovo[a]!=0){
                         for (int j=0;j<'A';j++){
                             if (slovo[a]==letters[j]){                  // here we check how much words in a line
-                                b=1;
+                                checkw=1;
                                 break;
                             }
                             else
-                                b=0;
+                                checkw=0;
                         }
-                        if (b==1){
-                            k++;
+                        if (checkw==1){
+                            words++;
                             break;
                         }
                         a++;
@@ -52,12 +52,12 @@ int main()
                 }
             }
         }
-        else if (k==0 && b==1)
-            k++;
-        b=0;
-        i++;
+        else if (words==0 && checkw==1)
+            words++;
+        checkw=0;
+        maincount++;
 
 
     }
-    cout << "The number of words in your line : " << k ;
+    cout << "The number of words in your line : " << words ;
 }
