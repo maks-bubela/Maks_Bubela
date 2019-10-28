@@ -3,35 +3,49 @@
 
 
 using namespace std;
-int x; // user's value1
-int y; // user's value2
-int result;
-int inputing(){
-    int value1,value2;
+
+int inputing1(){
+    int value1;
     cout << "Enter here first number : ";
     cin >> value1;
+    return(value1);
+}
+int inputing2(){
+    int value2;
+
     cout << "Enter here second number : ";
     cin >> value2;
-    x=value1;
-    y=value2;
+    return(value2);
 }
-void summ(int value1,int value2){
+int summ(int value1,int value2){
+    int result;
     result=value1+value2;
+    return (result);
 }
-void subtraction(int value1,int value2){
+int subtraction(int value1,int value2){
+    int result;
     result=value1-value2;
+    return (result);
 }
-void multiplicate(int value1,int value2){
+int multiplicate(int value1,int value2){
+    int result;
     result=value1*value2;
+    return (result);
 }
-void division(int value1,int value2){
+int division(int value1,int value2){
+    int result;
     result=value1/value2;
+    return (result);
 }
-void radical(int value1,int value2){
+float radical(int value1,int value2){
+    float result;
     result=sqrt(value1+value2);
+    return (result);
 }
-void exponention(int value1,int value2){
+int exponention(int value1,int value2){
+    int result;
     result=pow(value1,value2);
+    return (result);
 }
 
 int main()
@@ -49,26 +63,25 @@ int main()
     cin >> choice;
     if (choice==6)
         cout << "First number - number second number - exponent" << endl;
-    inputing();
     switch (choice){
     case 1:
-        summ(x,y);
+        cout << summ(inputing1(),inputing2());
         break;
     case 2:
-        subtraction(x,y);
+        cout << subtraction(inputing1(),inputing2());
         break;
     case 3:
-        multiplicate(x,y);
+        cout << multiplicate(inputing1(),inputing2());
         break;
     case 4:
-        division(x,y);
+        cout << division(inputing1(),inputing2());
         break;
     case 5:
-        radical(x,y);
+        cout << radical(inputing1(),inputing2());
         break;
     case 6:
-        exponention(x,y);
+        cout << exponention(inputing1(),inputing2());
         break;
     }
-    cout << "Result : " << result;
+
 }
