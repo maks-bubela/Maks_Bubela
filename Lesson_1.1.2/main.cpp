@@ -10,8 +10,10 @@ int main()
     if (a<1000){
         cout << "Work more!!!" << endl;
     }
-    if (a<1000000)
-        cout << "Good" << endl;
+    if (a<1000000){
+        if (a>999)
+            cout << "Good" << endl;
+    }
     if (a>999999)
         cout << "You are a millionaire" << endl;
     cout << "But you done";
