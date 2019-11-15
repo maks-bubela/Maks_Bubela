@@ -12,10 +12,10 @@ int main()
     cin.getline(slovo,100);
 
     while(slovo[maincount]!=0){
-        if((slovo[maincount]>='A' && slovo[maincount]<='Z' && ((slovo[maincount+1]>'Z' && slovo[maincount+1]<'a') ||
-           (slovo[maincount-1]<'A' || words==0 ))) ||
-           (slovo[maincount]>='a' && slovo[maincount]<='z' && ((slovo[maincount+1]>'Z' && slovo[maincount+1]<'a') ||
-           (slovo[maincount-1]<'A' || words==0 ))))
+        if(((slovo[maincount]>='A' && slovo[maincount]<='Z') ||
+           (slovo[maincount]>='a' && slovo[maincount]<='z')) &&
+            ((slovo[maincount+1]<='A' || slovo[maincount+1]>='z') ||
+           (slovo[maincount+1]<='a' && slovo[maincount+1]>='Z')))
            words++;
         maincount++;
     }
