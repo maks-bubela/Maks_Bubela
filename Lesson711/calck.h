@@ -18,6 +18,14 @@ public:
 private:
     Ui::Calck *ui;
 private slots:
-    void TakeText();
+    int TakeText1();
+    int TakeText2();
+    void add();
+    void subtractions();
+    void multiplication();
+    void division();
+    void exponention();
+    void radical();
+    void factorial();
 };
 #endif // CALCK_H
