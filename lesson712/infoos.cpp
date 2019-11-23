@@ -18,6 +18,6 @@ InfoOS::~InfoOS()
 
 void InfoOS::InfoSet()
 {
-    ui->sysOutput->setText(QSysInfo::prettyProductName()+"\nCPU : "+QSysInfo::buildCpuArchitecture()+"\nHost name : "+QSysInfo::machineHostName());
+    ui->sysOutput->setText(QSysInfo::prettyProductName()+"\nCPU : "+QSysInfo::buildAbi()+"\nHost name : "+QSysInfo::machineHostName());
 }
 
