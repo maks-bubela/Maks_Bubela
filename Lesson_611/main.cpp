@@ -10,7 +10,7 @@ public:
     int counter=0;
     int choice =0;
     Cryptographer();
-    Cryptographer(char text[100], int ceskey);
+    Cryptographer(char text[100], int ceskey);                              //constractor
     Cryptographer(char text[100], char vigkey[25]);
 
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -20,7 +20,7 @@ public:
     }
     void setVigKey(char vigkey[25]){
         for (int i=0;i<25;i++)
-            this->vigkey[i] = vigkey[i];
+            this->vigkey[i] = vigkey[i];                            // setters
     }
     void setCesKey(int ceskey){
         ceskey=1+ceskey %26;
@@ -34,7 +34,7 @@ public:
         return(text);
     }
     string getVigKey(){
-        return(vigkey);
+        return(vigkey);                                             //getters
     }
     int getCesKey(){
         return(ceskey);
@@ -47,7 +47,7 @@ public:
     string CesCrypt();
     string CesDecrypt();
     string VigCrypt();
-    string VigDecrypt();
+    string VigDecrypt();                    //Function
     void ShowInfo();
 
 
@@ -75,7 +75,7 @@ Cryptographer::Cryptographer(char text[100], int ceskey){
         this->text[counter] = text[counter];
     ceskey=1+ceskey %26;
     this->ceskey=ceskey;
-    cout << "You want : crypt(1) decrypt(0) : ";
+    cout << "You want : crypt(1) decrypt(0) : ";                        //description of constractor
     cin >> choice;
     if (choice)
         CesCrypt();
@@ -97,14 +97,14 @@ Cryptographer::Cryptographer(char text[100], char vigkey[25]){
 //////////////////////////////////////////////////////////////////////////////////////////////
 string Cryptographer::CesCrypt(){
         for (int i=0;i<counter;i++){
-            text[i]=text[i]+ceskey;
+            text[i]=text[i]+ceskey;             //description Caesar encryption
             if (text[i]>122)
                 text[i]=text[i]-26;
         }
 }
 string Cryptographer::CesDecrypt(){
     for (int i=0;i<counter;i++){
-        text[i]=text[i]-ceskey;
+        text[i]=text[i]-ceskey;                     //description Caesar decryption
         if (text[i]<97)
             text[i]=text[i]+26;
 
@@ -116,7 +116,7 @@ string Cryptographer::VigCrypt(){
     for (int i=0;i<counter;i++){
         if (vigkey[keycount]==0)
             keycount=0;
-        text[i]=((text[i]+vigkey[keycount])%26)+97;
+        text[i]=((text[i]+vigkey[keycount])%26)+97;                 //description Vigener encryption
         if (text[i]>122)
             text[i]=text[i]-26;
     }
@@ -126,7 +126,7 @@ string Cryptographer::VigDecrypt(){
     for (int i=0;i<counter;i++){
         if (vigkey[keycount]==0)
             keycount=0;
-        text[i]=(((text[i]+26)-vigkey[keycount])%26)+97;
+        text[i]=(((text[i]+26)-vigkey[keycount])%26)+97;                //description Vigener decryption
         if (text[i]>122)
             text[i]=text[i]-26;
     }
@@ -134,16 +134,16 @@ string Cryptographer::VigDecrypt(){
 void Cryptographer::ShowInfo(){
     cout << "---------------------" << endl;
     if (choice)
-        cout << "Crypt text is : " << text << endl;
+        cout << "Crypt text is : " << text << endl;             //description show info function
     else if (choice==0)
         cout << "Decrypt text is : " << text << endl;
 }
 int main()
 {
-    char utext[100];
-    int uceskey;
-    char uvigkey[25];
-    int choice;
+    char utext[100];               //user text
+    int uceskey;                  //user Caesar key
+    char uvigkey[25];            //user Vigener key
+    int choice;                 //user method choice
     Cryptographer crypt;
     cout << "Enter here your text : ";
     cin.getline(utext,100);
@@ -152,12 +152,12 @@ int main()
     if (choice){
         cout << "Enter here your key : ";
         cin >> uceskey;
-        crypt(utext[100],uceskey);
+        crypt(utext[100],uceskey);                  // tuta oshibka
     }
     else if (choice==0){
         cout << "Enter here your key : ";
         cin.getline(uvigkey,25);
-        crypt(utext[100],uvigkey[25]);
+        crypt(utext[100],uvigkey[25]);              // i tuta
     }
 
 
