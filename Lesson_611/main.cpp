@@ -10,10 +10,10 @@ public:
     int counter=0;
     int choice =0;
     Cryptographer();
-    Cryptographer(char text[100], int ceskey);                              //constractor
-    Cryptographer(char text[100], char vigkey[25]);
+    Cryptographer(char text[], int ceskey);                              //constractor
+    Cryptographer(char text[], char vigkey[]);
 
-//////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////
     void setText(char text[100]){
         for (int i=0;i<100;i++)
             this->text[i] = text[i];
@@ -29,7 +29,7 @@ public:
     void setCrypto(bool crypto){
         this->crypto=crypto;
     }
-//////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////
     string getText(){
         return(text);
     }
@@ -65,7 +65,7 @@ Cryptographer::Cryptographer(){
 
     strcpy(text,"Hello world");
     srand(time(0));
-    ceskey=1+ rand() %26;
+    ceskey=1+ (rand() %26);
     strcpy(vigkey,"megaban");
     cout << CesCrypt() << endl;
     cout << CesDecrypt() << endl;
@@ -73,29 +73,25 @@ Cryptographer::Cryptographer(){
 
 
 }
-Cryptographer::Cryptographer(char text[100], int ceskey){
+Cryptographer::Cryptographer(char text[], int ceskey){
 
 
-   for (int counter=0;counter<100;counter++)
+    for (int counter=0;counter<100;counter++)
         this->text[counter] = text[counter];
-    ceskey=1+ceskey %26;
+    ceskey=ceskey %26;
     this->ceskey=ceskey;
     cout << "You want : crypt(1) decrypt(0) : ";                        //description of constractor
     cin >> choice;
-    if (choice)
+    if (choice==1)
         CesCrypt();
     else if (choice==0)
         CesDecrypt();
 }
-Cryptographer::Cryptographer(char text[100], char vigkey[25]){
-    for (int counter=0;counter<100;counter++)
-            this->text[counter] = text[counter];
-        for (int counter=0;counter<25;counter++)
-            this->vigkey[counter] = vigkey[counter];
+Cryptographer::Cryptographer(char text[], char vigkey[]){
     for (int counter=0;counter<100;counter++)
         this->text[counter] = text[counter];
-    for (int counter=0;counter<25;counter++)
-        this->vigkey[counter] = vigkey[counter];
+    for (int i=0;i<25;i++)
+        this->vigkey[i] = vigkey[i];
     cout << "You want : crypt(1) decrypt(0) : ";
     cin >> choice;
     if (choice)
@@ -105,39 +101,48 @@ Cryptographer::Cryptographer(char text[100], char vigkey[25]){
 }
 //////////////////////////////////////////////////////////////////////////////////////////////
 string Cryptographer::CesCrypt(){
-        for (int i=0;i<counter;i++){
-            text[i]=text[i]+ceskey;             //description Caesar encryption
-            if (text[i]>122)
-                text[i]=text[i]-26;
-        }
+    int i=0;
+    while(text[i]!=0){
+        text[i]=text[i]+ceskey;             //description Caesar encryption
+        if (text[i]>122)
+            text[i]=text[i]-26;
+        i++;
+
+    }
 }
 string Cryptographer::CesDecrypt(){
-    for (int i=0;i<counter;i++){
+    int i=0;
+    while(text[i]!=0){
         text[i]=text[i]-ceskey;                     //description Caesar decryption
         if (text[i]<97)
             text[i]=text[i]+26;
+        i++;
 
     }
 
 }
 string Cryptographer::VigCrypt(){
     int keycount=0;
-    for (int i=0;i<counter;i++){
+    int i=0;
+    while(text[i]!=0){
         if (vigkey[keycount]==0)
             keycount=0;
         text[i]=((text[i]+vigkey[keycount])%26)+97;                 //description Vigener encryption
         if (text[i]>122)
             text[i]=text[i]-26;
+        i++;
     }
 }
 string Cryptographer::VigDecrypt(){
     int keycount=0;
-    for (int i=0;i<counter;i++){
+    int i=0;
+    while(text[i]!=0){
         if (vigkey[keycount]==0)
             keycount=0;
         text[i]=(((text[i]+26)-vigkey[keycount])%26)+97;                //description Vigener decryption
         if (text[i]>122)
             text[i]=text[i]-26;
+        i++;
     }
 }
 void Cryptographer::ShowInfo(){
@@ -153,21 +158,22 @@ int main()
     int uceskey;                  //user Caesar key
     char uvigkey[25];            //user Vigener key
     int choice=0;                 //user method choice
-    Cryptographer crypt;
-    crypt.ShowInfo();
+
     cout << "Enter here your text : ";
     cin.getline(utext,100);
     cout << "Which method you want to use Cesar (1) Vigener (0) : ";
     cin >> choice;
-    if (choice){
+    if (choice==1){
         cout << "Enter here your key : ";
         cin >> uceskey;
-        Cryptographer crypt(utext,uceskey);                  // tuta oshibka
+        Cryptographer crypt(utext,uceskey);
+        crypt.ShowInfo();  // tuta oshibka
     }
     else if (choice==0){
         cout << "Enter here your key : ";
-        cin.getline(uvigkey,25);
-        Cryptographer crypt(utext,uvigkey);              // i tuta
+        cin.getline(uvigkey,100);
+        Cryptographer crypt(utext,uvigkey);
+        crypt.ShowInfo();// i tuta
     }
 
 
