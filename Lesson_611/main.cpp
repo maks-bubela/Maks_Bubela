@@ -84,7 +84,7 @@ Cryptographer::Cryptographer(char text[], int ceskey){
     cin >> choice;
     if (choice==1)
         CesCrypt();
-    else if (choice==0)
+    if (choice==0)
         CesDecrypt();
 }
 Cryptographer::Cryptographer(char text[], char vigkey[]){
@@ -94,9 +94,9 @@ Cryptographer::Cryptographer(char text[], char vigkey[]){
         this->vigkey[i] = vigkey[i];
     cout << "You want : crypt(1) decrypt(0) : ";
     cin >> choice;
-    if (choice)
+    if (choice==1)
         VigCrypt();
-    else if (choice==0)
+    if (choice==0)
         VigDecrypt();
 }
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -109,6 +109,7 @@ string Cryptographer::CesCrypt(){
         i++;
 
     }
+    ShowInfo();
 }
 string Cryptographer::CesDecrypt(){
     int i=0;
@@ -117,10 +118,11 @@ string Cryptographer::CesDecrypt(){
         if (text[i]<97)
             text[i]=text[i]+26;
         i++;
-
     }
+    ShowInfo();
 
 }
+
 string Cryptographer::VigCrypt(){
     int keycount=0;
     int i=0;
@@ -132,6 +134,7 @@ string Cryptographer::VigCrypt(){
             text[i]=text[i]-26;
         i++;
     }
+    ShowInfo();
 }
 string Cryptographer::VigDecrypt(){
     int keycount=0;
@@ -144,12 +147,13 @@ string Cryptographer::VigDecrypt(){
             text[i]=text[i]-26;
         i++;
     }
+    ShowInfo();
 }
 void Cryptographer::ShowInfo(){
     cout << "---------------------" << endl;
-    if (choice)
+    if (choice==1)
         cout << "Crypt text is : " << text << endl;             //description show info function
-    else if (choice==0)
+    if (choice==0)
         cout << "Decrypt text is : " << text << endl;
 }
 int main()
@@ -167,18 +171,13 @@ int main()
         cout << "Enter here your key : ";
         cin >> uceskey;
         Cryptographer crypt(utext,uceskey);
-        crypt.ShowInfo();  // tuta oshibka
     }
     else if (choice==0){
         cout << "Enter here your key : ";
-        cin.getline(uvigkey,100);
+        cin.getline(uvigkey,25);
+        cin.getline(uvigkey,25);
         Cryptographer crypt(utext,uvigkey);
-        crypt.ShowInfo();// i tuta
+
     }
-
-
-
-
-
     return 0;
 }
