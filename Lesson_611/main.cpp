@@ -60,6 +60,9 @@ private:
 };
 //////////////////////////////////////////////////////////////////////////////////////////////
 Cryptographer::Cryptographer(){
+
+
+
     strcpy(text,"Hello world");
     srand(time(0));
     ceskey=1+ rand() %26;
@@ -71,7 +74,9 @@ Cryptographer::Cryptographer(){
 
 }
 Cryptographer::Cryptographer(char text[100], int ceskey){
-    for (int counter=0;counter<100;counter++)
+
+
+   for (int counter=0;counter<100;counter++)
         this->text[counter] = text[counter];
     ceskey=1+ceskey %26;
     this->ceskey=ceskey;
@@ -83,6 +88,10 @@ Cryptographer::Cryptographer(char text[100], int ceskey){
         CesDecrypt();
 }
 Cryptographer::Cryptographer(char text[100], char vigkey[25]){
+    for (int counter=0;counter<100;counter++)
+            this->text[counter] = text[counter];
+        for (int counter=0;counter<25;counter++)
+            this->vigkey[counter] = vigkey[counter];
     for (int counter=0;counter<100;counter++)
         this->text[counter] = text[counter];
     for (int counter=0;counter<25;counter++)
@@ -143,8 +152,9 @@ int main()
     char utext[100];               //user text
     int uceskey;                  //user Caesar key
     char uvigkey[25];            //user Vigener key
-    int choice;                 //user method choice
+    int choice=0;                 //user method choice
     Cryptographer crypt;
+    crypt.ShowInfo();
     cout << "Enter here your text : ";
     cin.getline(utext,100);
     cout << "Which method you want to use Cesar (1) Vigener (0) : ";
@@ -152,12 +162,12 @@ int main()
     if (choice){
         cout << "Enter here your key : ";
         cin >> uceskey;
-        crypt(utext[100],uceskey);                  // tuta oshibka
+        Cryptographer crypt(utext,uceskey);                  // tuta oshibka
     }
     else if (choice==0){
         cout << "Enter here your key : ";
         cin.getline(uvigkey,25);
-        crypt(utext[100],uvigkey[25]);              // i tuta
+        Cryptographer crypt(utext,uvigkey);              // i tuta
     }
 
 
