@@ -74,6 +74,7 @@ string Cryptographer::VigCrypt(){
         if (text[i]>122)
             text[i]=text[i]-26;
         i++;
+        keycount++;
     }
     ShowInfo();
 }
