@@ -5,15 +5,14 @@ using namespace std;
 
 int main()
 {
-    char pmap[25][50]; //Massive for map
+    char pmap[25][50]; // player  map
+    char tmap[25][50]; //  map
     int pposx,pposy; // coordinates of user character
     int newposx,newposy; // new coordinates of user character
     int sz1=25,sz2=50; // size counter for map
     int eatposy,eatposx; // coordinates of eat
-    int ctail=0; // counter for tail
-    int stail=0; // size tail
-    int tailposx[25],tailposy[50]; //coordinates of tail
     int score=0; // score
+    int counter=0;
 
 
     srand(time(0));
@@ -26,29 +25,32 @@ int main()
             while (pposx==eatposx && pposy==eatposy){
                 eatposx=1+ rand()%49;                 // here we make random x and y for eat
                 eatposy=1+ rand()%24;
-                ctail=1;
+                score++;
             }
-            if (ctail==1){
-                ctail=0;
-                stail++;
-                tail[stail];
 
-            }
             for (int i=0;i<sz1;i++){                        // in this cycle we make map, the borders of map and user character
                 for (int q=0;q<sz2;q++){
                     if (q==0                                            // position of boards
                         ||q==sz2-1
                         ||i==0
                         ||i==sz1-1){
-                    pmap[i][q]='@';
+                    tmap[i][q]='@';
+                    pmap[i][q]='*';
                     }
-                    else if (q==pposx && i==pposy){                       // position of snake
+
+                    else if (q==pposx && i==pposy){                       // position of user
                         pmap[i][q]='T';
+                        tmap[i][q]=' ';
                     }
-                    else if (q==eatposx && i==eatposy)                  //position of eat
-                        pmap[i][q]='o';
+                    else if (q==eatposx && i==eatposy){                  //position of eat
+                        tmap[i][q]='o';
+                        if (counter==0)
+                            pmap[i][q]='*';
+                    }
                     else {
-                        pmap[i][q]='*';
+                        if (pmap[i][q]!=tmap[i][q] || counter==0)
+                            pmap[i][q]='*';
+                        tmap[i][q]=' ';
                     }
                 }
             }
@@ -65,22 +67,27 @@ int main()
                 newposx=pposx;
                 newposy=pposy;
 
+
                 switch (action) {
                     case 8:
                         newposy--;
                         pposy=newposy;
+
                         break;
                     case 2:
                         newposy++;
-                        pposy=newposy;                    // in this switch we check what character must to do
+                        pposy=newposy;
+                                        // in this switch we check what character must to do
                         break;
                     case 4:
                         newposx--;
                         pposx=newposx;
+
                         break;
                     case 6:
                         newposx++;
                         pposx=newposx;
+
                         break;
                     case 0:
                         return(0);
@@ -89,7 +96,7 @@ int main()
                     newposx=sz2-1;
                     pposx=newposx;
                 }
-                else if(newposy==0){                    //here we check whether the snake went abroad
+                else if(newposy==0){                    //here we check whether the user went abroad
                     newposy=sz1-1;
                     pposy=newposy;
                 }
@@ -101,6 +108,14 @@ int main()
                     newposy=sz1-(sz1-1);
                     pposy=newposy;
                 }
-
+                pmap[pposy][pposx+1]=tmap[pposy][pposx+1];
+                pmap[pposy][pposx-1]=tmap[pposy][pposx-1];
+                pmap[pposy+1][pposx]=tmap[pposy+1][pposx];
+                pmap[pposy-1][pposx]=tmap[pposy-1][pposx];
+                pmap[pposy-1][pposx-1]=tmap[pposy-1][pposx-1];
+                pmap[pposy+1][pposx+1]=tmap[pposy-1][pposx+1];
+                pmap[pposy+1][pposx-1]=tmap[pposy+1][pposx-1];
+                pmap[pposy-1][pposx+1]=tmap[pposy-1][pposx-1];
+                counter++;
             }
 }
