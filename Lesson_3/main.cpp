@@ -13,7 +13,7 @@ int main()
     int ctail=0; // counter for tail
     int stail=0; // size tail
     int tailposx[25],tailposy[50]; //coordinates of tail
-    int tail[1250];
+    int score=0; // score
 
 
     srand(time(0));
@@ -48,7 +48,7 @@ int main()
                     else if (q==eatposx && i==eatposy)                  //position of eat
                         pmap[i][q]='o';
                     else {
-                        pmap[i][q]=' ';
+                        pmap[i][q]='*';
                     }
                 }
             }
