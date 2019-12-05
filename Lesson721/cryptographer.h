@@ -19,12 +19,12 @@ public:
 private:
     Ui::Cryptographer *ui;
 private slots:
-    string CesCrypt();
-    string CesDecrypt();
-    string VigCrypt();
-    string VigDecrypt();
-    string Choice();
-    string Choice2();
+    void CesCrypt();
+    void CesDecrypt();
+    void VigCrypt();
+    void VigDecrypt();
+    void Choice();
+    void Choice2();
 };
 
 #endif // CRYPTOGRAPHER_H

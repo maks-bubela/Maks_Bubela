@@ -18,19 +18,19 @@ Cryptographer::~Cryptographer()
 {
     delete ui;
 }
-string Cryptographer::Choice(){
+void Cryptographer::Choice(){
     if (ui->crypt,&QPushButton::clicked)
         CesCrypt();
     if (ui->decrypt,&QPushButton::clicked)              //choice (crypt/decrypt)
         CesDecrypt();
 }
-string Cryptographer::Choice2(){
+void Cryptographer::Choice2(){
     if (ui->crypt,&QPushButton::clicked)
         VigCrypt();
     if (ui->decrypt,&QPushButton::clicked)
         VigDecrypt();
 }
-string Cryptographer::VigCrypt(){
+void Cryptographer::VigCrypt(){
     QString dotext,key;
     key=ui->key->text();
     string vigkey;
@@ -51,8 +51,9 @@ string Cryptographer::VigCrypt(){
     }
     QString qstr = QString::fromStdString(crypt);
     ui->crytext->setText(qstr);
+
 }
-string Cryptographer::VigDecrypt(){
+void Cryptographer::VigDecrypt(){
     QString dotext,key;
     key=ui->key->text();
     string vigkey;
@@ -72,8 +73,9 @@ string Cryptographer::VigDecrypt(){
     }
     QString qstr = QString::fromStdString(decrypt);
     ui->crytext->setText(qstr);
+
 }
-string Cryptographer::CesCrypt()
+void Cryptographer::CesCrypt()
 {
     QString dotext,key;
     key=ui->key->text();
@@ -93,8 +95,9 @@ string Cryptographer::CesCrypt()
     }
     QString qstr = QString::fromStdString(crypt);
     ui->crytext->setText(qstr);
+
 }
-string Cryptographer::CesDecrypt()
+void Cryptographer::CesDecrypt()
 {
     QString dotext,key;
     key=ui->key->text();
@@ -114,4 +117,5 @@ string Cryptographer::CesDecrypt()
     }
     QString qstr = QString::fromStdString(decrypt);
     ui->crytext->setText(qstr);
+
 }

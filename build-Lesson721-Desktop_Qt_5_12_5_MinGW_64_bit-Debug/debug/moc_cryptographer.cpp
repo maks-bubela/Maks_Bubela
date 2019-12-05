@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Cryptographer_t {
-    QByteArrayData data[9];
-    char stringdata0[77];
+    QByteArrayData data[8];
+    char stringdata0[70];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,18 +33,16 @@ static const qt_meta_stringdata_Cryptographer_t qt_meta_stringdata_Cryptographer
     {
 QT_MOC_LITERAL(0, 0, 13), // "Cryptographer"
 QT_MOC_LITERAL(1, 14, 8), // "CesCrypt"
-QT_MOC_LITERAL(2, 23, 6), // "string"
-QT_MOC_LITERAL(3, 30, 0), // ""
-QT_MOC_LITERAL(4, 31, 10), // "CesDecrypt"
-QT_MOC_LITERAL(5, 42, 8), // "VigCrypt"
-QT_MOC_LITERAL(6, 51, 10), // "VigDecrypt"
-QT_MOC_LITERAL(7, 62, 6), // "Choice"
-QT_MOC_LITERAL(8, 69, 7) // "Choice2"
+QT_MOC_LITERAL(2, 23, 0), // ""
+QT_MOC_LITERAL(3, 24, 10), // "CesDecrypt"
+QT_MOC_LITERAL(4, 35, 8), // "VigCrypt"
+QT_MOC_LITERAL(5, 44, 10), // "VigDecrypt"
+QT_MOC_LITERAL(6, 55, 6), // "Choice"
+QT_MOC_LITERAL(7, 62, 7) // "Choice2"
 
     },
-    "Cryptographer\0CesCrypt\0string\0\0"
-    "CesDecrypt\0VigCrypt\0VigDecrypt\0Choice\0"
-    "Choice2"
+    "Cryptographer\0CesCrypt\0\0CesDecrypt\0"
+    "VigCrypt\0VigDecrypt\0Choice\0Choice2"
 };
 #undef QT_MOC_LITERAL
 
@@ -62,20 +60,20 @@ static const uint qt_meta_data_Cryptographer[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   44,    3, 0x08 /* Private */,
-       4,    0,   45,    3, 0x08 /* Private */,
-       5,    0,   46,    3, 0x08 /* Private */,
-       6,    0,   47,    3, 0x08 /* Private */,
-       7,    0,   48,    3, 0x08 /* Private */,
-       8,    0,   49,    3, 0x08 /* Private */,
+       1,    0,   44,    2, 0x08 /* Private */,
+       3,    0,   45,    2, 0x08 /* Private */,
+       4,    0,   46,    2, 0x08 /* Private */,
+       5,    0,   47,    2, 0x08 /* Private */,
+       6,    0,   48,    2, 0x08 /* Private */,
+       7,    0,   49,    2, 0x08 /* Private */,
 
  // slots: parameters
-    0x80000000 | 2,
-    0x80000000 | 2,
-    0x80000000 | 2,
-    0x80000000 | 2,
-    0x80000000 | 2,
-    0x80000000 | 2,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -86,21 +84,16 @@ void Cryptographer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         auto *_t = static_cast<Cryptographer *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: { string _r = _t->CesCrypt();
-            if (_a[0]) *reinterpret_cast< string*>(_a[0]) = std::move(_r); }  break;
-        case 1: { string _r = _t->CesDecrypt();
-            if (_a[0]) *reinterpret_cast< string*>(_a[0]) = std::move(_r); }  break;
-        case 2: { string _r = _t->VigCrypt();
-            if (_a[0]) *reinterpret_cast< string*>(_a[0]) = std::move(_r); }  break;
-        case 3: { string _r = _t->VigDecrypt();
-            if (_a[0]) *reinterpret_cast< string*>(_a[0]) = std::move(_r); }  break;
-        case 4: { string _r = _t->Choice();
-            if (_a[0]) *reinterpret_cast< string*>(_a[0]) = std::move(_r); }  break;
-        case 5: { string _r = _t->Choice2();
-            if (_a[0]) *reinterpret_cast< string*>(_a[0]) = std::move(_r); }  break;
+        case 0: _t->CesCrypt(); break;
+        case 1: _t->CesDecrypt(); break;
+        case 2: _t->VigCrypt(); break;
+        case 3: _t->VigDecrypt(); break;
+        case 4: _t->Choice(); break;
+        case 5: _t->Choice2(); break;
         default: ;
         }
     }
+    Q_UNUSED(_a);
 }
 
 QT_INIT_METAOBJECT const QMetaObject Cryptographer::staticMetaObject = { {
