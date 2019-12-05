@@ -22,13 +22,14 @@ int main()
         cout << "Enter here your key : ";
         cin >> uceskey;
         Cryptographer crypt(utext,uceskey);
+        crypt.ShowInfo();
     }
     else if (choice==0){
         cout << "Enter here your key : ";
         cin.getline(uvigkey,25);
         cin.getline(uvigkey,25);
         Cryptographer crypt(utext,uvigkey);
-
+        crypt.ShowInfo();
     }
     return 0;
 }

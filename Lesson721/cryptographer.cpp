@@ -3,7 +3,7 @@
 #include <string.h>
 #include "QString"
 #include "math.h"
-using namespace std;
+
 
 Cryptographer::Cryptographer(QWidget *parent)
     : QMainWindow(parent)
@@ -34,7 +34,7 @@ string Cryptographer::VigCrypt(){
     QString dotext,key;
     key=ui->key->text();
     string vigkey;
-    vigkey=dotext.toStdString();
+    vigkey=key.toStdString();
     string crypt;
     dotext=ui->text->text();
     crypt=dotext.toStdString();
@@ -56,7 +56,7 @@ string Cryptographer::VigDecrypt(){
     QString dotext,key;
     key=ui->key->text();
     string vigkey;
-    vigkey=dotext.toStdString();
+    vigkey=key.toStdString();
     string decrypt;
     dotext=ui->text->text();
     decrypt=dotext.toStdString();

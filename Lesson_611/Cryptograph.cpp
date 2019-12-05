@@ -49,7 +49,7 @@ string Cryptographer::CesCrypt(){
             text[i]=text[i]-26;
         i++;
     }
-    ShowInfo();
+
 }
 string Cryptographer::CesDecrypt(){
     int i=0;
@@ -59,7 +59,7 @@ string Cryptographer::CesDecrypt(){
             text[i]=text[i]+26;
         i++;
     }
-    ShowInfo();
+
 
 }
 
@@ -75,7 +75,7 @@ string Cryptographer::VigCrypt(){
         i++;
         keycount++;
     }
-    ShowInfo();
+
 }
 string Cryptographer::VigDecrypt(){
     int keycount=0;
@@ -89,7 +89,7 @@ string Cryptographer::VigDecrypt(){
         i++;
         keycount++;
     }
-    ShowInfo();
+
 }
 void Cryptographer::ShowInfo(){
     cout << "---------------------" << endl;
