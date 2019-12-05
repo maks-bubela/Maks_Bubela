@@ -5,11 +5,11 @@ Cryptographer::Cryptographer(){
 
 
     strcpy(text,"Hello world");
+    cout << CesCrypt() << endl;
+    cout << CesDecrypt() << endl;
     srand(time(0));
     ceskey=1+ (rand() %26);
     strcpy(vigkey,"megaban");
-    cout << CesCrypt() << endl;
-    cout << CesDecrypt() << endl;
     cout << VigCrypt() << endl;
 
 
@@ -48,7 +48,6 @@ string Cryptographer::CesCrypt(){
         if (text[i]>122)
             text[i]=text[i]-26;
         i++;
-
     }
     ShowInfo();
 }
@@ -88,6 +87,7 @@ string Cryptographer::VigDecrypt(){
         if (text[i]>122)
             text[i]=text[i]-26;
         i++;
+        keycount++;
     }
     ShowInfo();
 }

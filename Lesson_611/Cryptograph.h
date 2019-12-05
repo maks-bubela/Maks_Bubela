@@ -26,9 +26,6 @@ public:
         ceskey=1+ceskey %26;
         this->ceskey = ceskey;
     }
-    void setCrypto(bool crypto){
-        this->crypto=crypto;
-    }
     //////////////////////////////////////////////////////////////////////////////////////////////
     string getText(){
         return(text);
@@ -39,10 +36,6 @@ public:
     int getCesKey(){
         return(ceskey);
     }
-    bool getCrypto(){
-        return(crypto);
-    }
-
 
     string CesCrypt();
     string CesDecrypt();
@@ -56,5 +49,4 @@ private:
     char text[100];
     char vigkey[25];
     int ceskey;
-    bool crypto;
 };
