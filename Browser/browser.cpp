@@ -2,6 +2,9 @@
 #include "ui_browser.h"
 #include "KeyPress.h"
 #include "history.h"
+#include <fstream>
+#include <QDebug>
+
 
 Browser::Browser(QWidget *parent)
     : QMainWindow(parent)
@@ -40,12 +43,20 @@ void Browser::go()
 void Browser::updateUrl(QUrl url)
 {
     if(i){
-    history.append(url.toString());
-    ui->ulink->setText(url.toString());             // show url
-    if (maxel!=counter)
-        counter=maxel;
-    counter++;
-    maxel=counter;
+        history.append(url.toString());
+        ui->ulink->setText(url.toString());             // show url
+        if (maxel!=counter)
+            counter=maxel;
+        counter++;
+        maxel=counter;
+        qDebug() << history[counter-1];
+
+        std::ofstream out("/home/maks/Git/Maks_Bubela/Browser/history.txt", std::ios::app);
+        if (out.is_open())
+        {
+            out << history[counter-1].toStdString() << std::endl;
+        }
+        out.close();
     }
     i=1;
 }
