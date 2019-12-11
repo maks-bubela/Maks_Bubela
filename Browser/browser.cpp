@@ -25,7 +25,8 @@ Browser::Browser(QWidget *parent)
     connect(mychrom, &QWebEngineView::loadProgress, this, &Browser::LoadProgress);
     connect(mychrom, &QWebEngineView::loadFinished, this, &Browser::LoadFinished);
     connect(ui->b_history, &QPushButton::clicked, this, &Browser::showHistory);
-    connect(ui->ulink, &Browser::signalFromKeyboard, this, &Browser::goEnter)
+    connect(this, &Browser::signalFromKeyboard, this, &Browser::go);
+   // connect(this, &KeyPress::signalFromKeyboard, this, &Browser::go);
 }
 
 Browser::~Browser()
@@ -107,18 +108,19 @@ void Browser::keyPressEvent(QKeyEvent *e)
 {
     if(e->key() == Qt::Key_Enter)
     {
-        emit signalFromKeyboard(e);
+        emit signalFromKeyboard();
     }
 
 }
 
-void Browser::goEnter(QKeyEvent *e)
-{   if(e->key() == Qt::Key_Enter){
+void Browser::goEnter()
+{
     QString url=ui->ulink->text();
     if (url.indexOf("http://") ==-1 && url.indexOf("https://")==-1)         // function for go to page
         url = "http://" + url;
     mychrom->load(url);
-    }
+    qDebug() << "lol";
+
 }
 
 

@@ -19,7 +19,7 @@ public:
      Browser (QWidget *parent = nullptr);
     ~Browser();
 signals :
-    void signalFromKeyboard(QKeyEvent *e);
+    void signalFromKeyboard();
 
 protected slots:
     void go();
@@ -31,7 +31,7 @@ protected slots:
     void goBack();
     void goNext();
     void keyPressEvent(QKeyEvent *e);
-    void goEnter(QKeyEvent *e);
+    void goEnter();
 
 
 
