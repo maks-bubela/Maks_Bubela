@@ -2,6 +2,7 @@
 #define HISTORY_H
 
 #include <QDialog>
+#include "browser.h"
 
 namespace Ui {
 class History;
@@ -17,6 +18,8 @@ public:
 
 private:
     Ui::History *ui;
+    void goHistory();
+
 };
 
 #endif // HISTORY_H

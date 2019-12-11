@@ -25,6 +25,7 @@ Browser::Browser(QWidget *parent)
     connect(mychrom, &QWebEngineView::loadProgress, this, &Browser::LoadProgress);
     connect(mychrom, &QWebEngineView::loadFinished, this, &Browser::LoadFinished);
     connect(ui->b_history, &QPushButton::clicked, this, &Browser::showHistory);
+    connect(ui->ulink, &Browser::signalFromKeyboard, this, &Browser::goEnter)
 }
 
 Browser::~Browser()
@@ -49,7 +50,7 @@ void Browser::updateUrl(QUrl url)
             counter=maxel;
         counter++;
         maxel=counter;
-        qDebug() << history[counter-1];
+
 
         std::ofstream out("/home/maks/Git/Maks_Bubela/Browser/history.txt", std::ios::app);
         if (out.is_open())
@@ -101,5 +102,25 @@ void Browser::goNext()
     i=0;
 
 }
+
+void Browser::keyPressEvent(QKeyEvent *e)
+{
+    if(e->key() == Qt::Key_Enter)
+    {
+        emit signalFromKeyboard(e);
+    }
+
+}
+
+void Browser::goEnter(QKeyEvent *e)
+{   if(e->key() == Qt::Key_Enter){
+    QString url=ui->ulink->text();
+    if (url.indexOf("http://") ==-1 && url.indexOf("https://")==-1)         // function for go to page
+        url = "http://" + url;
+    mychrom->load(url);
+    }
+}
+
+
 //////////////////////////////////////////
 

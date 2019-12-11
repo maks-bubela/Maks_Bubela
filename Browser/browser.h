@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QWebEngineView>
 #include "history.h"
+#include <QKeyEvent>
 
 
 QT_BEGIN_NAMESPACE
@@ -15,8 +16,10 @@ class Browser : public QMainWindow
     Q_OBJECT
 
 public:
-    Browser(QWidget *parent = nullptr);
+     Browser (QWidget *parent = nullptr);
     ~Browser();
+signals :
+    void signalFromKeyboard(QKeyEvent *e);
 
 protected slots:
     void go();
@@ -27,6 +30,9 @@ protected slots:
     void showHistory();
     void goBack();
     void goNext();
+    void keyPressEvent(QKeyEvent *e);
+    void goEnter(QKeyEvent *e);
+
 
 
 private:
@@ -34,7 +40,8 @@ private:
     QWebEngineView *mychrom;
     QStringList history;
     int counter=0,maxel=0;
-    bool i;
+    bool i,k;
+
 };
 
 #endif // BROWSER_H

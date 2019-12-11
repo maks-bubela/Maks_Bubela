@@ -2,11 +2,11 @@
 #include "browser.h"
 
 
-void KeyPress::keyPressEvent(QKeyEvent *event)
+void KeyPress::keyPressEvent(QKeyEvent *e)
 {
-    if(event->key() == Qt::Key_Enter)
+    if(e->key() == Qt::Key_Enter)
     {
-        go();
+        emit signalFromKeyboard(1);
     }
 }
 

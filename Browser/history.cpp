@@ -1,5 +1,7 @@
 #include "history.h"
 #include "ui_history.h"
+#include "browser.h"
+#include <QMainWindow>
 
 History::History(QStringList *history, QWidget *parent) :
     QDialog(parent),
@@ -14,4 +16,13 @@ History::History(QStringList *history, QWidget *parent) :
 History::~History()
 {
     delete ui;
+}
+
+void History::goHistory()
+{
+
+    Browser *mainWindow = new Browser();
+        mainWindow->show();
+
+
 }
